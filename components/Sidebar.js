@@ -32,7 +32,7 @@ function Sidebar() {
             rounded-full w-56 h-[52px] text-lg font-bold shadow-md hover:bg-[#1a8cd8]">Tweet</button>
             <div className="text-[#d9d9d9] flex items-center 
             justify-center hoverAnimation xl:ml-auto xl:-mr-5 mt-auto">
-                <img src="https://www.freepnglogos.com/uploads/logo-facebook-png/logo-facebook-high-quality-facebook-logo-cliparts-for-20.png" alt=""
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Facebook_Logo.png" alt=""
                     className="h-10 w-10 rounded-full xl:mr-2.5" />
                 <div className="hidden xl:inline leading-5">
                     <h4 className="font-bold">user</h4>
