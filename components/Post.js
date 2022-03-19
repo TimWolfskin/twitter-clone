@@ -28,7 +28,6 @@ import { useRecoilState } from "recoil";
 import { modalState, postIdState } from "../atoms/modalAtom";
 import { db } from "../firebase";
 
-
 function Post({ id, post, postPage }) {
     const { data: session } = useSession();
     const [isOpen, setIsOpen] = useRecoilState(modalState);
@@ -38,6 +37,17 @@ function Post({ id, post, postPage }) {
     const [liked, setLiked] = useState(false);
     const router = useRouter();
 
+    useEffect(
+        () =>
+            onSnapshot(
+                query(
+                    collection(db, "posts", id, "comments"),
+                    orderBy("timestamp", "desc")
+                ),
+                (snapshot) => setComments(snapshot.docs)
+            ),
+        [db, id]
+    );
 
     useEffect(
         () =>
@@ -64,8 +74,6 @@ function Post({ id, post, postPage }) {
             });
         }
     };
-
-
 
     return (
         <div
@@ -203,4 +211,4 @@ function Post({ id, post, postPage }) {
     );
 }
 
-export default Post
+export default Post;
